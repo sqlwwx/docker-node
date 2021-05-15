@@ -1,0 +1,7 @@
+FROM sqlwwx/node:latest
+
+RUN apk add --no-cache git openssh-client \
+  && mkdir -p $HOME/.ssh && chmod 700 $HOME/.ssh \
+  && echo "StrictHostKeyChecking no" > /etc/ssh/ssh_config
+
+# COPY id_rsa /root/.ssh/
