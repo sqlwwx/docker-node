@@ -1,4 +1,4 @@
-FROM node:lts-alpine as builder
+FROM node:14-alpine as builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk update --no-cache -v \
