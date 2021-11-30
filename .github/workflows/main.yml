@@ -19,4 +19,4 @@ jobs:
           cd docker-node
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          make all
+          make all MAIN_VERSION=16

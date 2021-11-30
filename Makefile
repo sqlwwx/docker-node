@@ -3,6 +3,7 @@ MAIN_VERSION = 16
 RELEASES = patch minor major
 
 build:
+	sed -i '1c FROM node:${MAIN_VERSION}-alpine as builder' Dockerfile
 	docker build -t sqlwwx/node:$(VERSION) -t sqlwwx/node:$(MAIN_VERSION) -t sqlwwx/node:latest .
 	docker build -f Dockerfile.git -t sqlwwx/node-git:$(VERSION) -t sqlwwx/node-git:$(MAIN_VERSION) -t sqlwwx/node-git:latest .
 	docker build -f Dockerfile.builder -t sqlwwx/node-builder:$(VERSION) -t sqlwwx/node-builder:$(MAIN_VERSION) -t sqlwwx/node-builder:latest .
