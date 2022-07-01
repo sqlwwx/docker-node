@@ -9,7 +9,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
   && echo "Asia/Shanghai" > /etc/timezone \
   && apk del tzdata
 
-RUN npm config set registry https://registry.npm.taobao.org
+RUN npm config set registry https://registry.npmmirror.com
 
 RUN npm i -g pnpm \
   && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache \
