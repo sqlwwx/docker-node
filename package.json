@@ -1,6 +1,6 @@
 {
   "name": "docker-node",
-  "version": "16.13.2",
+  "version": "16.14.0",
   "private": true,
   "repository": "git@github.com:sqlwwx/docker-node.git",
   "author": "sqlwwx <wwx@wuweixing.com>",

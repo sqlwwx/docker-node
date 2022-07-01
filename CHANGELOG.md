@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [16.14.0](https://github.com/sqlwwx/docker-node/compare/v16.13.2...v16.14.0) (2022-07-01)
+
+
+### Bug Fixes
+
+* npm config set registry https://registry.npmmirror.com ([0f5fc09](https://github.com/sqlwwx/docker-node/commit/0f5fc0994b46b29da3915ce6767d588359961f71))
+
 ### [16.13.2](https://github.com/sqlwwx/docker-node/compare/v16.13.1...v16.13.2) (2021-11-30)
 
 # Changelog
