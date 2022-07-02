@@ -11,17 +11,17 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN npm config set registry https://registry.npmmirror.com
 
-RUN npm i -g pnpm \
-  && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache \
+RUN npm i pnpm --location=global \
+  && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache && rm -rf $HOME/.npm/_logs \
   && find /usr/local/lib/node_modules -name *.md | xargs rm -rf \
-  && find /usr/local/lib/node_modules/ -name docs -type d | xargs rm -rf \
-  && find /usr/local/lib/node_modules/ -name doc -type d | xargs rm -rf \
-  && rm -rf /var/cache/apk/*
+  && find /usr/local/lib/node_modules -type d -empty -delete
 
 FROM scratch
 
 COPY --from=builder / /
 
+ENV PNPM_HOME /usr/local/share/pnpm
+ENV PATH ${PNPM_HOME}:${PATH}
 ENV NODE_ENV production
 
 WORKDIR /app

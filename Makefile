@@ -8,6 +8,10 @@ build:
 	docker build -f Dockerfile.git -t sqlwwx/node-git:$(VERSION)-alpine -t sqlwwx/node-git:$(MAIN_VERSION)-alpine -t sqlwwx/node-git:latest .
 	docker build -f Dockerfile.builder -t sqlwwx/node-builder:$(VERSION)-alpine -t sqlwwx/node-builder:$(MAIN_VERSION)-alpine -t sqlwwx/node-builder:latest .
 
+build-base:
+	sed -i '1c FROM node:${MAIN_VERSION}-alpine as builder' Dockerfile
+	docker build -t sqlwwx/node:$(VERSION)-alpine -t sqlwwx/node:$(MAIN_VERSION)-alpine -t sqlwwx/node:latest .
+
 publish:
 	docker push sqlwwx/node:$(VERSION)-alpine
 	docker push sqlwwx/node:$(MAIN_VERSION)-alpine
