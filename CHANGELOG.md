@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [16.15.0](https://github.com/sqlwwx/docker-node/compare/v16.14.0...v16.15.0) (2022-07-02)
+
 ## [16.14.0](https://github.com/sqlwwx/docker-node/compare/v16.13.2...v16.14.0) (2022-07-01)
 
 
