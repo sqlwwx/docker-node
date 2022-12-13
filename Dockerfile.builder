@@ -5,8 +5,8 @@ RUN apk add --no-cache \
 
 RUN pnpm i -g \
   standard-version oss-site-deployer jscpd jest \
-  && find /root/.local/share/pnpm/ -name *.md | xargs rm -rf \
-  && find /root/.local/share/pnpm/ -type d -empty -delete \
+  && find /usr/local/share/pnpm -name *.md | xargs rm -rf \
+  && find /usr/local/share/pnpm -type d -empty -delete \
   && find /usr/local/lib/node_modules -name *.md | xargs rm -rf \
   && find /usr/local/lib/node_modules -type d -empty -delete
 
