@@ -1,4 +1,4 @@
-FROM node:16-alpine as builder
+FROM node:18-alpine as builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk update --no-cache -v \
@@ -11,7 +11,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN npm config set registry https://registry.npmmirror.com
 
-RUN npm i -g pnpm \
+RUN npm i pnpm --location=global \
   && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache \
   && find /usr/local/lib/node_modules -name *.md | xargs rm -rf \
   && find /usr/local/lib/node_modules/ -name docs -type d | xargs rm -rf \
