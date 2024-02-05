@@ -1,5 +1,5 @@
 VERSION ?=$(shell node -p "require('./package.json').version")
-MAIN_VERSION = 20.11
+MAIN_VERSION = 20
 RELEASES = patch minor major
 
 BUILD_VERSION = $(MAIN_VERSION)-$(VERSION)
