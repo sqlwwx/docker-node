@@ -1,13 +1,12 @@
-FROM node:18.16-alpine as builder
+FROM node:20.11-alpine as builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
-  && apk update --no-cache -v \
-  && apk upgrade --no-cache -v \
-  && apk add --no-cache \
-     tzdata gcompat \
+  && apk update -v && apk upgrade -v \
+  && apk add tzdata gcompat \
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo "Asia/Shanghai" > /etc/timezone \
-  && apk del tzdata
+  && apk del tzdata \
+  && rm -rf /var/cache/apk/*
 
 RUN npm config set registry https://registry.npmmirror.com
 

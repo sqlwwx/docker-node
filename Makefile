@@ -1,10 +1,11 @@
 VERSION ?=$(shell node -p "require('./package.json').version")
-MAIN_VERSION = 18.16
+MAIN_VERSION = 20.11
 RELEASES = patch minor major
 
 BUILD_VERSION = $(MAIN_VERSION)-$(VERSION)
 
 build:
+	rm -rf git-restore-mtime && wget https://cdn.jsdelivr.net/gh/MestreLion/git-tools@v2022.12/git-restore-mtime && chmod +x git-restore-mtime
 	sed -i '1c FROM node:${MAIN_VERSION}-alpine as builder' Dockerfile
 	docker build -t sqlwwx/node:$(BUILD_VERSION)-alpine -t sqlwwx/node:$(MAIN_VERSION)-alpine -t sqlwwx/node:latest .
 	docker build -f Dockerfile.git -t sqlwwx/node-git:$(BUILD_VERSION)-alpine -t sqlwwx/node-git:$(MAIN_VERSION)-alpine -t sqlwwx/node-git:latest .
