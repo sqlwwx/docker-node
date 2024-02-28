@@ -3,7 +3,7 @@ FROM sqlwwx/node-git:latest
 ADD git-restore-mtime /usr/local/bin/
 
 RUN apk add --no-cache \
-  make zip g++ python3
+  make zip g++ 
 
 RUN pnpm i -g \
   standard-version oss-site-deployer jscpd jest \

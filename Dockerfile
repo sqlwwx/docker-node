@@ -2,7 +2,7 @@ FROM node:20-alpine as builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk update -v && apk upgrade -v \
-  && apk add tzdata gcompat \
+  && apk add --no-cache tzdata gcompat python3 \
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo "Asia/Shanghai" > /etc/timezone \
   && apk del tzdata \
